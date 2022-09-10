@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-api-feed
+  labels:
+    app: udagram-api-feed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-api-feed
+  template:
+    metadata:
+      labels:
+        app: udagram-api-feed
+    spec:
+      containers:
+      - name: udagram-api-feed
+        image: donprecious/udagram-api-feed:v1
+        ports:
+        - containerPort: 80 
+        envFrom:
+        - configMapRef:
+           name: example-configmap 
+        - secretRef:
+            name: env-secret-credentials

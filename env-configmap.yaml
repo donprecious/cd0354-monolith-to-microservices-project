@@ -1,0 +1,20 @@
+kind: ConfigMap 
+apiVersion: v1 
+metadata:
+  name: example-configmap 
+data:
+  # Configuration values can be set as key-value properties
+  AWS_BUCKET: arn:aws:s3:::udacity-demo-s3-bucket
+  AWS_REGION: us-east-2
+  AWS_PROFILE: default
+  JWT_SECRET: testing
+  URL: http://localhost:3001
+  POSTGRES_HOST: udacitydemo.ctcozlyrhmwu.us-east-2.rds.amazonaws.com
+  # POSTGRES_DB: udacity-mcs-1
+  # POSTGRES_USERNAME: donprecious
+  # POSTGRES_PASSWORD: precious0don
+  # Or set as complete file contents (even JSON!)
+  # keys: | 
+  #   image.public.key=771 
+  #   rsa.public.key=42
+
