@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: reverseproxy
-        image: donprecious/reverseproxy:v2
+        image: donprecious/reverseproxy:v3
         ports:
         - containerPort: 80
         envFrom:
