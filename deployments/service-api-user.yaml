@@ -6,7 +6,10 @@ metadata:
     run: udagram-api-user
 spec:
   ports:
-  - port: 80
+  - name: http
+    port: 80
     protocol: TCP
+    targetPort: user-port
+  type: ClusterIP
   selector:
     run: udagram-api-user

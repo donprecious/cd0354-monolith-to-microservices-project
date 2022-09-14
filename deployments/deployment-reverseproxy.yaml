@@ -1,24 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: udagram-api-user
+  name: reverseproxy
   labels:
-    app: udagram-api-user
+    app: reverseproxy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: udagram-api-user
+      app: reverseproxy
   template:
     metadata:
       labels:
-        app: udagram-api-user
+        app: reverseproxy
     spec:
       containers:
-      - name: udagram-api-user
-        image: donprecious/udagram-api-user:v1
+      - name: reverseproxy
+        image: donprecious/reverseproxy:v3
         ports:
-        - containerPort: 80
+        - name: reverse-port
+          containerPort: 80
         envFrom:
         - configMapRef:
            name: example-configmap 

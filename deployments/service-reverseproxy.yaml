@@ -6,7 +6,9 @@ metadata:
     run: reverseproxy
 spec:
   ports:
-  - port: 80
+  - name: http
+    port: 80
     protocol: TCP
+    targetPort: reverse-port
   selector:
     run: reverseproxy
