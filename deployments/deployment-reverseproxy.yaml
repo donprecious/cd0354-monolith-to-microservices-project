@@ -5,7 +5,7 @@ metadata:
   labels:
     app: reverseproxy
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: reverseproxy
@@ -17,9 +17,16 @@ spec:
       containers:
       - name: reverseproxy
         image: donprecious/reverseproxy:v3
+        imagePullPolicy: Always  
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m" 
         ports:
-        - name: reverse-port
-          containerPort: 80
+        -  containerPort: 8080
         envFrom:
         - configMapRef:
            name: example-configmap 

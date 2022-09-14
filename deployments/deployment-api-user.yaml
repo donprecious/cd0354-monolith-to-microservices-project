@@ -18,10 +18,16 @@ spec:
       - name: udagram-api-user
         image: donprecious/udagram-api-user:v1
         ports:
-        - name: user-port
-          containerPort: 80
+        - containerPort: 8080
         envFrom:
         - configMapRef:
            name: example-configmap 
         - secretRef:
             name: env-secret-credentials
+        resources:
+          requests:
+            memory: "1000Mi"
+            cpu: "250m"
+          limits:
+            memory: "2000Mi"
+            cpu: "500m"  
